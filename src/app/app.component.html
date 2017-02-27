@@ -1,3 +1,12 @@
-<h1>
-  {{title}}
-</h1>
+<div class="form-container">
+  <form>
+    <label class="label-style">Bill:</label>
+    <input class="input-style"type="text" #billName>
+    
+    <label class="label-style">Amount of Bill:</label>
+    <input class="input-style" type="text" #amountBill>
+  </form>
+  <button class="submit-button" (click)="submit(billName, amountBill)">Submit Bill</button>
+  </div>
+  <h2 class="total-style">Current Total: ${{total}}</h2>
+  <app-bill *ngFor="let bill of bills" [bills]="bill"></app-bill>

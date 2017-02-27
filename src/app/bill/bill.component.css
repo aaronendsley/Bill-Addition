@@ -1,0 +1,23 @@
+.bill-wrapper{
+    width:100%;
+    border:1px solid #fff;
+    background-color: #fff;
+    color:#000080;
+    margin-top:5px;
+}
+.title{
+    width:100%;
+    margin-top:5px;
+    margin-bottom:5px;
+    text-align: center;
+}
+.textFormat{
+    font-size: 1.5em;
+}
+
+.bill-amount {
+    width:100%;
+    margin-top: 5px;
+    margin-bottom:5px;
+    text-align: center;   
+}
