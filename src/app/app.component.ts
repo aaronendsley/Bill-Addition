@@ -14,16 +14,24 @@
          this.bills = [];
       }
 
-      submit(title: HTMLInputElement, amount: HTMLInputElement): boolean{
-        console.log(`submitted ${title.value} and ${amount.value}`);
+      resetTheValues(resetTitle, resetAmount): void{
+        resetTitle.value = '';
+        resetAmount.value = '';
+      }
+
+       addToAmount(newNumber: string, oldNumber: string ): string{
+        const newNum: number = parseFloat(newNumber);
+        const oldNum: number = parseFloat(oldNumber);
+        const retNum: string = (oldNum + newNum).toFixed(2);
+        return retNum;
+    }
+
+      submit(title: HTMLInputElement, amount: HTMLInputElement): void{
         const amountConverted: number = parseFloat(amount.value);
-        const convertedTotal: number = parseFloat(this.total);
-        const newValue: string = (amountConverted + convertedTotal).toFixed(2);
         this.bills.push(new Bill(title.value, amountConverted));
-        title.value = '';
-        amount.value = '';
-        this.total = newValue;
-        return false;
+        const mutTotal = amountConverted.toString();
+        this.resetTheValues(title, amount);
+        this.total = this.addToAmount(mutTotal,  this.total);
       }
       ngOnInit(){
 

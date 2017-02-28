@@ -21,3 +21,8 @@ body{
     color: #000080;
     letter-spacing: .3em;
 }
+.container{
+    width:100%;
+    margin:0;
+    padding:0;
+}
