@@ -9,6 +9,7 @@
     export class AppComponent implements OnInit {
       bills: Bill[];
       total: string = '0';
+      InputVal: string;
 
       constructor() {
          this.bills = [];
@@ -24,15 +25,31 @@
         const oldNum: number = parseFloat(oldNumber);
         const retNum: string = (oldNum + newNum).toFixed(2);
         return retNum;
-    }
+      }
+
+      checkTheInputAndPush(Input1: string, Input2: number): boolean {
+        if (!Input1 && !Input2 ){
+            this.InputVal = 'Please Enter a Bill Name and an Amount of your Bill';
+        }else if(!Input1){
+          this.InputVal = 'Please Enter a Bill Name';
+        }else if (isNaN(Input2)){
+          this.InputVal = 'Please Enter a Number Amount';
+        }else{
+          this.InputVal = '';
+          this.bills.push(new Bill(Input1, Input2));
+          const mutTotal = Input2.toString();
+          this.total = this.addToAmount(mutTotal,  this.total);
+          return true;
+        }
+
+      }
 
       submit(title: HTMLInputElement, amount: HTMLInputElement): void{
         const amountConverted: number = parseFloat(amount.value);
-        this.bills.push(new Bill(title.value, amountConverted));
-        const mutTotal = amountConverted.toString();
+        if (this.checkTheInputAndPush(title.value, amountConverted)) {;
         this.resetTheValues(title, amount);
-        this.total = this.addToAmount(mutTotal,  this.total);
-      }
+        }
+        }
       ngOnInit(){
 
       }

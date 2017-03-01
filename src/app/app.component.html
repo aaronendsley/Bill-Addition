@@ -6,6 +6,10 @@
     <label class="label-style">Amount of Bill:</label>
     <input class="input-style" type="text" #amountBill>
   </form>
+  <div class="validation">
+    <p>{{InputVal}}</p>
+    
+  </div>
     <button class="submit-button" (click)="submit(billName, amountBill)">Submit Bill</button>
   </div>
 
