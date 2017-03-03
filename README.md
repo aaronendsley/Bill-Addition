@@ -1,4 +1,4 @@
- ## What is this app
+ # What is this app
  
  This App is simple bill calculator that adds up your total cost of your bills for you as you enter them and lists your bills and there      cost in the order you entered them in.
  This was my first Angular 2+ project.
