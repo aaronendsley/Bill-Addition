@@ -5,24 +5,6 @@
     margin-right:20%;
     margin-top:120px;
 }
-
-.label-style{
-    width:80%;
-    margin-left:10%;
-    margin-right:10%;
-    font-size:1em;
-    color:#fff;
-
-}
-
-.input-style{
-    width:80%;
-    margin-left:10%;
-    margin-right:10%;
-    font-size:1em;
-    color:#000080;
-}
-
 .submit-button{
     border: 1px solid #fff;
     background-color: #fff;

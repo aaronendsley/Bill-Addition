@@ -1,18 +1,21 @@
     import { Component, OnInit } from '@angular/core';
     import { Bill } from './bill/bill.model';
-
     @Component({
       selector: 'app-root',
       templateUrl: './app.component.html',
       styleUrls: ['./app.component.css']
     })
+    
     export class AppComponent implements OnInit {
       bills: Bill[];
       total: string = '0';
       InputVal: string;
+      budget = 0;
+      budgetStringifyed: string;
 
       constructor() {
          this.bills = [];
+         console.log(this.budget);
       }
 
       resetTheValues(resetTitle, resetAmount): void{
@@ -44,7 +47,9 @@
 
       }
 
-      submit(title: HTMLInputElement, amount: HTMLInputElement): void{
+      
+
+      submit(title: HTMLInputElement, amount: HTMLInputElement): void {
         const amountConverted: number = parseFloat(amount.value);
         if (this.checkTheInputAndPush(title.value, amountConverted)) {;
         this.resetTheValues(title, amount);

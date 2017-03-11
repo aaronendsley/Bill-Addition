@@ -1,17 +1,27 @@
-<div class="form-container">
-  <form>
-    <label class="label-style">Bill:</label>
-    <input class="input-style"type="text" #billName>
-    
-    <label class="label-style">Amount of Bill:</label>
-    <input class="input-style" type="text" #amountBill>
-  </form>
-  <div class="validation">
-    <p>{{InputVal}}</p>
-    
-  </div>
-    <button class="submit-button" (click)="submit(billName, amountBill)">Submit Bill</button>
-  </div>
+<div *ngIf="budget === 0">
+    <div class="form-container">
+        <form>
+            <app-budget #Budget></app-budget>
+            <button class="submit-button">Submit Budget</button>
+        </form>
+    </div>
+</div>
 
-  <h2 class="total-style">Current Total: ${{total}}</h2>
-  <app-bill *ngFor="let bill of bills" [bills]="bill"></app-bill>
+<div *ngIf="budget !== 0">
+    <div class="form-container">
+        <form>
+            <label class="label-style">Bill:</label>
+            <input class="input-style" type="text" #billName>
+
+            <label class="label-style">Amount of Bill:</label>
+            <input class="input-style" type="text" #amountBill>
+            <div class="validation">
+                <p>{{InputVal}}</p>
+
+            </div>
+            <button class="submit-button" (click)="submit(billName, amountBill)">Submit Bill</button>
+        </form>
+    </div>
+    <h2 class="total-style">Total Budget Left: Current Total: ${{total}}</h2>
+    <app-bill *ngFor="let bill of bills" [bills]="bill"></app-bill>
+</div>
