@@ -1,13 +1,16 @@
-<div *ngIf="budget === 0">
+<div *ngIf="!budgetSubmit">
     <div class="form-container">
         <form>
-            <app-budget #Budget></app-budget>
-            <button class="submit-button">Submit Budget</button>
+            <app-budget (getBudget)="getBudgetValue($event)"></app-budget>
+            <div class="validation">
+              <p>{{InputVal}}</p>
+            </div>
+            
         </form>
     </div>
 </div>
 
-<div *ngIf="budget !== 0">
+<div *ngIf="budgetSubmit">
     <div class="form-container">
         <form>
             <label class="label-style">Bill:</label>
@@ -22,6 +25,6 @@
             <button class="submit-button" (click)="submit(billName, amountBill)">Submit Bill</button>
         </form>
     </div>
-    <h2 class="total-style">Total Budget Left: Current Total: ${{total}}</h2>
+    <h2 class="total-style">Total Budget Left: ${{budgetStringifyed}} Current Total: ${{total}}</h2>
     <app-bill *ngFor="let bill of bills" [bills]="bill"></app-bill>
 </div>

@@ -1,17 +1,19 @@
     import { Component, OnInit } from '@angular/core';
     import { Bill } from './bill/bill.model';
+
     @Component({
       selector: 'app-root',
       templateUrl: './app.component.html',
       styleUrls: ['./app.component.css']
     })
-    
+
     export class AppComponent implements OnInit {
       bills: Bill[];
-      total: string = '0';
+      total = '0';
       InputVal: string;
       budget = 0;
       budgetStringifyed: string;
+      budgetSubmit= false;
 
       constructor() {
          this.bills = [];
@@ -22,7 +24,19 @@
         resetTitle.value = '';
         resetAmount.value = '';
       }
-
+      changeBudgetToAString(budgetValue: number) {
+        this.budgetStringifyed = budgetValue.toFixed(2);
+      }
+      getBudgetValue(value: number) {
+        if (isNaN(value)){
+          this.InputVal = 'Please Enter Number for your budget amount';
+        }else{
+        this.budget = value;
+        this.changeBudgetToAString(this.budget);
+        this.InputVal = '';
+        this.budgetSubmit = true;
+        }
+      }
        addToAmount(newNumber: string, oldNumber: string ): string{
         const newNum: number = parseFloat(newNumber);
         const oldNum: number = parseFloat(oldNumber);
@@ -46,8 +60,6 @@
         }
 
       }
-
-      
 
       submit(title: HTMLInputElement, amount: HTMLInputElement): void {
         const amountConverted: number = parseFloat(amount.value);

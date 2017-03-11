@@ -42,3 +42,16 @@ body{
     font-size:1em;
     color:#000080;
 }
+
+.submit-button{
+    border: 1px solid #fff;
+    background-color: #fff;
+    color: #000080;
+    letter-spacing: .4em;
+    font-size:.8em;
+    font-family: sans-serif;
+    margin-top:20px;
+    margin-left:40%;
+    margin-right:40%
+    
+}

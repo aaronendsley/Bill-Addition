@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-budget',
@@ -6,7 +6,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./budget.component.css']
 })
 export class BudgetComponent implements OnInit {
-
+  @Output() getBudget = new EventEmitter();
+  
+  clickButton(budget: HTMLInputElement){
+    const thisBudget: number = parseFloat(budget.value);
+    this.getBudget.emit(thisBudget);
+  }
   constructor() { }
 
   ngOnInit() {
