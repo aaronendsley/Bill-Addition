@@ -1,4 +1,4 @@
-    import { Component, OnInit } from '@angular/core';
+    import { Component } from '@angular/core';
     import { Bill } from './bill/bill.model';
 
     @Component({
@@ -7,13 +7,17 @@
       styleUrls: ['./app.component.css']
     })
 
-    export class AppComponent implements OnInit {
+    export class AppComponent {
       bills: Bill[];
       total = '0';
       InputVal: string;
       budget = 0;
       budgetStringifyed: string;
       budgetSubmit= false;
+      billTitle: string;
+      billAmount: number;
+  
+
 
       constructor() {
          this.bills = [];
@@ -40,8 +44,14 @@
        addToAmount(newNumber: string, oldNumber: string ): string{
         const newNum: number = parseFloat(newNumber);
         const oldNum: number = parseFloat(oldNumber);
-        const retNum: string = (oldNum + newNum).toFixed(2);
+        const retNum: string = (oldNum + newNum).toFixed(2); 
         return retNum;
+      }
+
+      amountMinusBudget(amountToSub: number) {
+        const amountToSubtract = amountToSub;
+        this.budget = this.budget - amountToSubtract;
+        this.changeBudgetToAString(this.budget);
       }
 
       checkTheInputAndPush(Input1: string, Input2: number): boolean {
@@ -63,11 +73,10 @@
 
       submit(title: HTMLInputElement, amount: HTMLInputElement): void {
         const amountConverted: number = parseFloat(amount.value);
-        if (this.checkTheInputAndPush(title.value, amountConverted)) {;
+        if (this.checkTheInputAndPush(title.value, amountConverted)) {
+        this.amountMinusBudget(amountConverted);
         this.resetTheValues(title, amount);
         }
         }
-      ngOnInit(){
-
-      }
+     
     }
