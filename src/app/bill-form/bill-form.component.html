@@ -1,3 +1,6 @@
-<p>
-  bill-form works!
-</p>
+<label class="label-style">Bill:</label>
+            <input class="input-style" type="text" #billName>
+            
+            <label class="label-style">Amount of Bill:</label>
+            <input class="input-style" type="text" #amountBill>
+            <button class="submit-button" (click)="submitTheBills(billName, amountBill)">Submit Bill</button>

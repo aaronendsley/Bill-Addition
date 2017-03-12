@@ -28,10 +28,7 @@
             console.log(this.budget);
         }
 
-        resetTheValues(resetTitle, resetAmount): void {
-            resetTitle.value = '';
-            resetAmount.value = '';
-        }
+      
         changeBudgetToAString(budgetValue: number) {
             this.budgetStringifyed = budgetValue.toFixed(2);
         }
@@ -75,11 +72,11 @@
 
         }
 
-        submit(title: HTMLInputElement, amount: HTMLInputElement): void {
-            const amountConverted: number = parseFloat(amount.value);
-            if (this.checkTheInputAndPush(title.value, amountConverted)) {
+        submitTheBill(value: string[]) {
+            const passedBill = value;
+            const amountConverted: number = parseFloat(passedBill[1]);
+            if (this.checkTheInputAndPush(passedBill[0], amountConverted)) {
                 this.amountMinusBudget(amountConverted);
-                this.resetTheValues(title, amount);
             }
         }
 
