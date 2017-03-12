@@ -1,5 +1,6 @@
 import { Component, Output, EventEmitter } from '@angular/core';
 
+
 @Component({
   selector: 'app-bill-form',
   templateUrl: './bill-form.component.html',
@@ -8,8 +9,10 @@ import { Component, Output, EventEmitter } from '@angular/core';
 export class BillFormComponent{
 @Output() submit = new EventEmitter();
 
+
 submitTheBills(Input1: HTMLInputElement, Input2: HTMLInputElement){
-  const billArray: string[] = [Input1.value, Input2.value];
+  const amountFilteredForCommas: string = this.filterForCommas(Input2.value);
+  const billArray: string[] = [Input1.value, amountFilteredForCommas];
   this.submit.emit(billArray);
   this.resetTheValues(Input1, Input2);
 };
@@ -17,4 +20,12 @@ submitTheBills(Input1: HTMLInputElement, Input2: HTMLInputElement){
             resetTitle.value = '';
             resetAmount.value = '';
         }
+
+filterForCommas(input: string){
+    const arrayWithCommas = input.split('');
+    const stringWithNoCommas = arrayWithCommas.filter(function(value){
+        return value !== ',';
+    }).join('');
+    return stringWithNoCommas;
+  }
 }

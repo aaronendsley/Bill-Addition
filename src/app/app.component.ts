@@ -19,13 +19,10 @@
         budgetStringifyed: string;
         budgetSubmit = false;
 
-
-
         constructor() {
             this.bills = [];
             console.log(this.budget);
         }
-
 
         changeBudgetToAString(budgetValue: number) {
             this.budgetStringifyed = budgetValue.toFixed(2);
