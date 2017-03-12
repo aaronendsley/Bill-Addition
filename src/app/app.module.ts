@@ -6,12 +6,14 @@ import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { BillComponent } from './bill/bill.component';
 import { BudgetComponent } from './budget/budget.component';
+import { BillFormComponent } from './bill-form/bill-form.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     BillComponent,
-    BudgetComponent
+    BudgetComponent,
+    BillFormComponent
   ],
   imports: [
     BrowserModule,

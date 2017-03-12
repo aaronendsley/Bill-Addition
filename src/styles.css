@@ -30,6 +30,7 @@ body{
     width:80%;
     margin-left:10%;
     margin-right:10%;
+    margin-top:20px;
     font-size:1em;
     color:#fff;
 
@@ -39,8 +40,10 @@ body{
     width:80%;
     margin-left:10%;
     margin-right:10%;
+    margin-bottom: 20px;
     font-size:1em;
     color:#000080;
+    border-radius: 5px;
 }
 
 .submit-button{

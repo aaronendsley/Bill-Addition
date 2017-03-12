@@ -2,6 +2,7 @@ import {
     Component,
     Input
 } from '@angular/core';
+
 import {
     Bill
 } from './bill.model';
