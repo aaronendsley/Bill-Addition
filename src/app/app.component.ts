@@ -18,8 +18,6 @@
         budget = 0;
         budgetStringifyed: string;
         budgetSubmit = false;
-        billTitle: string;
-        billAmount: number;
 
 
 
@@ -28,7 +26,7 @@
             console.log(this.budget);
         }
 
-      
+
         changeBudgetToAString(budgetValue: number) {
             this.budgetStringifyed = budgetValue.toFixed(2);
         }
